@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单的图表</title>
+</head>
+<body>
+
+
+<script src="common/d3.min.js"></script>
+
+<script>
+    var width = 300;//画布的宽
+    var height = 300; //高
+
+    var dataset = [250 , 210 , 170 , 130 , 90 ];//表示矩形的宽度
+
+
+    var svg = d3.select('body')
+            .append('svg')
+            .attr('width',width)
+            .attr('height',height);
+
+    var rectHeight = 25; //每个矩形所占的像素高度(包括空白)
+
+    /**
+     * rect 矩形，常用的属性有4个
+     *
+     * x 矩形左上角的 x 坐标
+     *
+     * y 矩形左上角的 y 坐标
+     *
+     * width 矩形的宽度
+     *
+     * height 矩形的高度
+     *
+     *
+     * */
+    svg.selectAll('rect')
+            .data(dataset)
+            .enter() //指定选择集的enter部分
+            .append('rect') //添加足够数量的rect
+            .attr('x',20)   //距左上角 x的坐标
+            .attr('y',function (d, i) {
+                return i *rectHeight;
+            })
+            .attr('width',function (d) {
+                return d;
+            })
+            .attr('height',rectHeight-2)
+            .attr('fill','steelblue');
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

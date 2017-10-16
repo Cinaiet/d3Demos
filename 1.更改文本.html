@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>更改文本</title>
+</head>
+<body>
+    <p>hello world 1</p>
+    <p>hello world 2</p>
+
+    <script src="common/d3.min.js"></script>
+    <script>
+        //选择<body>中所有的p标签，修改其文本内容
+        //d3.select('body').selectAll('p').text('这是使用d3修改节点的innerText');
+
+        var p = d3.select('body').selectAll('p').text('这是使用d3修改节点的innerText');
+        //修改样式,支持链式语法
+        p.style('color','red')
+                .style('font-size','20px');
+    </script>
+</body>
+</html>

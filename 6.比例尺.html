@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比例尺</title>
+</head>
+<body>
+
+
+<script src="common/d3.min.js"></script>
+<script>
+
+    /***
+     *
+     * 线性比例尺
+     * domain 定义域
+     * range  值域
+     * */
+    /*var dataset = [1.2, 2.3, 0.9, 1.5, 3.3];
+
+    var min = d3.min(dataset);
+    var max = d3.max(dataset);
+    var linear = d3.scale.linear()
+            .domain([min,max])
+            .range([0,300]);
+
+    console.log(linear(0.9));
+    console.log(linear(2.3));*/
+
+    /**
+     *
+     * 序数比例尺
+     *
+     * domain 定义域
+     * range  值域
+     * */
+
+    var index = [0, 1, 2, 3, 4];
+    var color = ["red", "blue", "green", "yellow", "black"];
+
+    //想实现的效果是index与color一一对应
+
+    //ordinal 顺序，依次的。
+    var ordinal = d3.scale.ordinal()
+            .domain(index)
+            .range(color);
+    console.log(ordinal(0));
+    console.log(ordinal(2));
+    console.log(ordinal(4));
+
+
+
+
+
+    /*var dataset = [ 2.5 , 2.1 , 1.7 , 1.3 , 0.9 ];
+    var linear = d3.scale.linear()
+            //定义域
+            .domain([0,d3.max(dataset)])
+            //值域
+            .range([0,250]);
+
+    var rectHeight = 25; //包含空白像素的高度
+
+    var width = height = 300;
+
+    var svg = d3.select('body')
+            .append('svg')
+            .attr('width',width)
+            .attr('height',height);
+
+    svg.selectAll('rect')
+            .data(dataset)
+            .enter()
+            .append('rect')
+            .attr('x',20)
+            .attr('y',function (d, i) {
+
+                return i *rectHeight;
+            })
+            .attr('width',function (d) {
+                //在这里使用比例尺
+                return linear(d);
+            })
+            .attr('height',rectHeight -2)
+            .attr('fill','steelblue');*/
+</script>
+</body>
+</html>

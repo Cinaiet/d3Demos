@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data绑定元素</title>
+</head>
+<body>
+<p>Apple</p>
+<p>Pear</p>
+<p>Banana</p>
+<script src="common/d3.min.js"></script>
+<script>
+    var dataset= ['数据1','数据2','数据3'];
+
+    var body = d3.select('body');
+    var p = body.selectAll('p');
+
+    p.data(dataset).text(function (d, i) {
+        //d 相对应的数据
+        //i 相对应的索引
+        return d;
+    });
+
+
+
+</script>
+</body>
+</html>
